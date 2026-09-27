@@ -5,6 +5,33 @@ site built here must feel art-directed and bespoke: immersive, highly
 interactive, 3D where it earns its place. It must never look generic,
 templated or obviously AI-generated, and it must stay fast and accessible.
 
+## Operating rule: read the visual benchmark first
+
+[`references/VISUAL-BENCHMARK.md`](references/VISUAL-BENCHMARK.md) is the
+permanent visual quality benchmark for premium work. It is mandatory reading
+for every website project.
+
+- **Before designing or building a website**, read
+  `references/VISUAL-BENCHMARK.md`. Do this at the start of every new design
+  or implementation project, not only the first one.
+- Treat it as the **permanent visual quality benchmark** for premium work.
+- Use its principles to evaluate **art direction, typography, composition,
+  spacing, imagery, motion, interaction, depth, storytelling and perceived
+  luxury**.
+- **Do not reproduce any reference** or create a repeated visual style
+  across projects.
+- Use the benchmark as a **quality bar, not a template**.
+- For every new client, **independently determine the visual direction**
+  from the client's industry, personality, audience, location, brand,
+  market position, goals and research (see "Custom per client, every time"
+  and "Research before direction" below).
+- Apply **only the techniques that genuinely fit that client** (see the
+  benchmark's "Techniques for specific clients only" section).
+- **Before considering a website finished**, compare the result against the
+  benchmark and improve anything that feels generic, templated,
+  AI-generated, repetitive, cheap, cluttered or visually unintentional (see
+  "Definition of done").
+
 ## Premium website philosophy
 
 ### Who this is for
@@ -19,10 +46,10 @@ Treat every project as a custom digital experience, never a template fill.
 **Cinematic + luxurious + immersive + sophisticated + interactive + refined
 \+ human-designed.**
 
-The reference images in the Claude Project set the visual quality bar. If
-they aren't available in this repo or conversation, ask for them (e.g. added
-to `references/`) before committing to a major design direction; don't guess
-at the bar.
+The reference images in `references/` set the visual quality bar, and
+`references/VISUAL-BENCHMARK.md` distils them into principles (see the
+operating rule above). If the benchmark or its images are missing, ask for
+them before committing to a major design direction; don't guess at the bar.
 
 ### Perceived value comes from craft, not effects
 
@@ -222,9 +249,13 @@ A project is not complete until all of these are true:
    and keyboard navigation has been checked.
 3. **Performance.** `pnpm lhci` passes all budgets.
 4. **Full gate.** `pnpm verify` passes.
-5. **Premium check.** Honestly answer: does this look like a ₹7–10 lakh,
-   human-designed, custom experience for _this_ client? Is every effect
-   purposeful? Would it be mistaken for a template or AI output?
+5. **Premium check.** Compare the result against
+   `references/VISUAL-BENCHMARK.md` (its sections on what feels expensive,
+   what feels human-designed, the tells to avoid, and the swap test). Honestly
+   answer: does this look like a ₹7–10 lakh, human-designed, custom
+   experience for _this_ client? Is every effect purposeful? Would it be
+   mistaken for a template or AI output? Improve anything generic, templated,
+   AI-generated, repetitive, cheap, cluttered or visually unintentional.
 
 If the result falls short of the benchmark, improve it and repeat. Do not
 declare it complete. When reporting, state what was checked and include the
