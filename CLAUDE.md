@@ -32,6 +32,15 @@ for every website project.
   AI-generated, repetitive, cheap, cluttered or visually unintentional (see
   "Definition of done").
 
+## Operating rule: follow the project workflow
+
+- For every client website project, follow
+  [`PROJECT-WORKFLOW.md`](PROJECT-WORKFLOW.md) from client brief through
+  delivery.
+- Treat it as the **required execution workflow**, not an optional reference.
+- Continue to use `CLAUDE.md` for permanent standards and
+  `references/VISUAL-BENCHMARK.md` for the visual quality bar.
+
 ## Premium website philosophy
 
 ### Who this is for
