@@ -1,0 +1,9 @@
+# Only these dependencies may run install scripts (native binaries).
+allowBuilds:
+  esbuild: true
+  sharp: true
+
+# Peers are declared explicitly in package.json. This keeps pnpm from pulling in
+# eslint-plugin-jsx-a11y (no ESLint 10 support) alongside the maintained fork
+# eslint-plugin-jsx-a11y-x, which eslint-plugin-astro uses for its a11y rules.
+autoInstallPeers: false

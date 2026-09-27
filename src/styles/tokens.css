@@ -1,0 +1,61 @@
+/*
+ * Design tokens. Values here are neutral scaffolding: each project replaces
+ * colour, type and spacing with its own art direction.
+ */
+:root {
+  /* Colour */
+  --color-bg: oklch(98% 0.005 80deg);
+  --color-fg: oklch(18% 0.01 80deg);
+  --color-muted: oklch(45% 0.01 80deg);
+  --color-accent: oklch(55% 0.12 50deg);
+  --color-focus: oklch(55% 0.2 260deg);
+
+  /* Type: swap the first family for a self-hosted variable font (see fonts.css) */
+  --font-display: ui-serif, georgia, 'Times New Roman', serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', roboto, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', menlo, consolas, monospace;
+  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --step-1: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --step-2: clamp(1.6rem, 1.3rem + 1.4vw, 2.4rem);
+  --step-3: clamp(2.2rem, 1.6rem + 3vw, 4.2rem);
+  --step-4: clamp(3rem, 2rem + 6vw, 8rem);
+
+  /* Space */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 7rem;
+  --gutter: clamp(1rem, 4vw, 3rem);
+
+  /* Motion: always use these so reduced motion can neutralise them */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-cinematic: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 180ms;
+  --duration-base: 450ms;
+  --duration-slow: 900ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: oklch(14% 0.01 80deg);
+    --color-fg: oklch(94% 0.01 80deg);
+    --color-muted: oklch(70% 0.01 80deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-slow: 0ms;
+  }
+}
+
+:root[data-motion='reduce'] {
+  --duration-fast: 0ms;
+  --duration-base: 0ms;
+  --duration-slow: 0ms;
+}

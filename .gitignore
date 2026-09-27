@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-harness/
+.astro/
+
+# Generated at build time from three/examples (see scripts/copy-decoders.mjs)
+public/decoders/
+
+# Test and audit artefacts
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+.lighthouseci/
+
+# Raw 3D sources (optimised output in src/assets/models is committed)
+assets-src/**/*.blend
+assets-src/**/*.blend1
+
+# Env and logs
+.env
+.env.*
+!.env.example
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/

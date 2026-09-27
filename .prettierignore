@@ -1,0 +1,10 @@
+dist
+dist-harness
+.astro
+node_modules
+pnpm-lock.yaml
+public/decoders
+playwright-report
+test-results
+.lighthouseci
+tests/**/*-snapshots

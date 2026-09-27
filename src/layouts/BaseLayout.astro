@@ -1,0 +1,52 @@
+---
+import '@/styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Lenis smooth scrolling. Automatically disabled under reduced motion. */
+  smoothScroll?: boolean;
+  /** Font URLs (imported with ?url) to preload; keep to above-the-fold faces. */
+  preloadFonts?: string[];
+  lang?: string;
+}
+
+const { title, description, smoothScroll = true, preloadFonts = [], lang = 'en' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang={lang} data-smooth-scroll={smoothScroll ? 'on' : 'off'}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {preloadFonts.map((href) => (
+      <link rel="preload" href={href} as="font" type="font/woff2" crossorigin />
+    ))}
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      Skip to content
+    </a>
+    <slot name="header" />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <slot name="footer" />
+
+    <script>
+      import { initSmoothScroll } from '@/lib/motion/smooth-scroll';
+
+      if (document.documentElement.dataset['smoothScroll'] === 'on') {
+        initSmoothScroll();
+      }
+    </script>
+  </body>
+</html>

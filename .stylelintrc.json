@@ -1,0 +1,13 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-html/astro"],
+  "rules": {
+    "selector-class-pattern": null,
+    "custom-property-pattern": null,
+    "import-notation": "string",
+    "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["global"] }],
+    "declaration-property-value-disallowed-list": {
+      "transition": ["/all/"],
+      "transition-property": ["/all/"]
+    }
+  }
+}

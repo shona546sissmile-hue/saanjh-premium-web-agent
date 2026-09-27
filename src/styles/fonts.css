@@ -1,0 +1,22 @@
+/*
+ * Self-hosted variable fonts.
+ *
+ * Put licensed .woff2 variable fonts in src/assets/fonts/ (Vite fingerprints
+ * and caches them) and declare them here, then point --font-display /
+ * --font-body in tokens.css at the new family. Preload only the one or two
+ * faces used above the fold (see BaseLayout's `preloadFonts` prop).
+ *
+ * Example:
+ *
+ * @font-face {
+ *   font-family: 'Display';
+ *   src: url('../assets/fonts/display-variable.woff2') format('woff2-variations');
+ *   font-weight: 100 900;
+ *   font-style: normal;
+ *   font-display: swap;
+ * }
+ *
+ * Subset fonts to the needed character ranges before adding them
+ * (e.g. `pyftsubset` with --flavor=woff2) and use size-adjust /
+ * ascent-override on a local() fallback face to prevent layout shift.
+ */

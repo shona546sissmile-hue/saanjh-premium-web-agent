@@ -1,0 +1,33 @@
+---
+import LazyScene from '@/components/LazyScene.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import fallback from './fallback.png';
+---
+
+<BaseLayout title="Harness: lazy scene" description="Test harness for LazyScene.">
+  <h1>Lazy scene harness</h1>
+  <div class="spacer" data-testid="spacer"></div>
+  <LazyScene
+    class="stage"
+    scene="harness"
+    fallback={fallback}
+    alt="Abstract amber sphere on a dark background"
+    rootMargin="0px"
+  />
+</BaseLayout>
+
+<style>
+  .spacer {
+    height: 200vh;
+  }
+
+  .stage {
+    aspect-ratio: 16 / 9;
+  }
+</style>
+
+<script>
+  import { registerScene } from '@/lib/three/lazy-scene';
+
+  registerScene('harness', () => import('./harness-scene'));
+</script>
