@@ -9,6 +9,10 @@ dist-harness/
 # Generated at build time from three/examples (see scripts/copy-decoders.mjs)
 public/decoders/
 
+# Client material drop folder (see CLIENT-INTAKE.md); committed only on client branches
+inbox/*
+!inbox/README.md
+
 # Test and audit artefacts
 test-results/
 playwright-report/

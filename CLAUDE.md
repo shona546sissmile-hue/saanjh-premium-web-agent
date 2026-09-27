@@ -38,6 +38,9 @@ for every website project.
   [`PROJECT-WORKFLOW.md`](PROJECT-WORKFLOW.md) from client brief through
   delivery.
 - Treat it as the **required execution workflow**, not an optional reference.
+- When the owner says **"Start client project"** (or "Continue client
+  project" / "Add to client project"), run the intake in
+  [`CLIENT-INTAKE.md`](CLIENT-INTAKE.md), then continue the workflow.
 - Continue to use `CLAUDE.md` for permanent standards and
   `references/VISUAL-BENCHMARK.md` for the visual quality bar.
 

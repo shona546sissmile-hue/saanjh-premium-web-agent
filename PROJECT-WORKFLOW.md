@@ -40,6 +40,9 @@ be reviewed later without being approved in advance.
    credits, paid stock, paid fonts, paid AI generation or paid hosting.
 3. **Access is needed**: credentials, passwords, security permissions or
    account authorisation.
+   **Installing system packages** (`apt` or similar) also needs approval:
+   use tools already available or a legitimate alternative first (see
+   `CLIENT-INTAKE.md`, "When an inspection tool is missing").
 4. **An action is irreversible or externally consequential**: deploying,
    publishing, DNS changes, sending anything to the client or a third
    party, deleting non-generated work, pushing to `main`, force-pushing, or
@@ -99,7 +102,9 @@ Workflow).
 
 | File                 | Created in stage         | Purpose                                                             |
 | -------------------- | ------------------------ | ------------------------------------------------------------------- |
-| `brief/`             | Client brief             | The original brief and supplied assets, stored untouched            |
+| `brief/originals/`   | Client brief             | The original brief and supplied assets, stored untouched            |
+| `brief/INVENTORY.md` | Client brief             | Every supplied file and link: what it is, quality, usefulness       |
+| `assets/`            | Client brief             | Organised working copies of useful supplied assets                  |
 | `BRIEF.md`           | Understand               | Normalised brief, with each fact's source, gaps and assumptions     |
 | `RESEARCH.md`        | Research                 | Findings, sources and implications                                  |
 | `STRATEGY.md`        | Strategy                 | Positioning, goals, audience, success measures, scope               |
@@ -117,12 +122,13 @@ For a small brief, several files can be brief, but none are skipped.
 
 ### 3.3 Facts, assumptions and gaps
 
-Every fact in `BRIEF.md` is labelled by source:
+Every fact in `BRIEF.md` is labelled by source (full rules in
+[`CLIENT-INTAKE.md`](CLIENT-INTAKE.md) §4):
 
-- **Given**: stated in the brief or supplied assets.
-- **Researched**: found in public sources (cite the URL).
-- **Inferred**: a reasonable professional judgement (state the reasoning).
-- **Missing**: unknown.
+- **CLIENT-PROVIDED**: stated in the brief or supplied material.
+- **RESEARCHED**: found in public sources (cite the URL).
+- **INFERRED**: a reasonable professional judgement (state the reasoning).
+- **MISSING**: unknown.
 
 **Critical information** means details that can't be researched or inferred
 without risking harm, legal exposure or major rework:
@@ -194,14 +200,21 @@ the relevant dossier file and log the change when that happens.
 
 ### 4.0 Client brief (intake)
 
+Stages 4.0 and 4.1 are carried out by the intake procedure in
+[`CLIENT-INTAKE.md`](CLIENT-INTAKE.md), triggered by **"Start client
+project"**. The summary below is for reference.
+
 - **Responsible for:** receiving the brief in any form and preserving it.
 - **Decides autonomously:** the project slug, how to organise supplied
   files, and when to start.
-- **Gathers:** everything supplied (text, links, files, assets).
+- **Gathers:** everything supplied (text, links, files, assets), from the
+  owner's message and `inbox/` (copied and checksum-verified; `inbox/`
+  itself is never modified).
 - **Tools and techniques:** `git switch -c client/<slug> main`; copy the
-  brief and assets untouched into `project/brief/`.
-- **Exit outputs:** the client branch; `project/brief/` with the original
-  material.
+  brief and assets untouched into `project/brief/originals/`;
+  `pnpm intake:inventory`; organise working copies into `project/assets/`.
+- **Exit outputs:** the client branch; `project/brief/originals/`,
+  `project/brief/INVENTORY.md` and `project/assets/`.
 - **Needs approval:** nothing, unless the brief is ambiguous about which
   business or project it's for (§2.2 item 6).
 
@@ -217,8 +230,9 @@ the relevant dossier file and log the change when that happens.
 - **Tools and techniques:** read all supplied material; view every supplied
   image and video frame; fetch the existing site and public social profiles;
   classify facts per §3.3.
-- **Exit outputs:** `BRIEF.md` with labelled facts, assumptions, gaps and a
-  list of critical questions (if any).
+- **Exit outputs:** `BRIEF.md` (from
+  [`templates/CLIENT-BRIEF.md`](templates/CLIENT-BRIEF.md)) with labelled
+  facts, assumptions, gaps and a list of critical questions (if any).
 - **Needs approval:** only for critical gaps (§3.3) or contradictions and
   ambiguities (§2.2 items 5–6), all batched into one message. Non-blocking
   work continues meanwhile.
@@ -334,7 +348,9 @@ benchmark §7).
   verified facts, the gaps list.
 - **Tools and techniques:** writing copy to the message hierarchy; sharp
   and `astro:assets` for images; `pnpm optimize:3d` for models; ffmpeg for
-  video transcoding and posters (install via apt if needed); variable font
+  video transcoding and posters if available (installing it needs
+  approval; pre-encoded client files or browser-captured posters are
+  alternatives); variable font
   subsetting; recording licences.
 - **Exit outputs:** `CONTENT.md` with copy per section, an asset list
   (source, licence, treatment, status), and an open-items list of
@@ -556,6 +572,7 @@ dossier, not the conversation.
 | Critical fact missing (§3.3)                                      | Placeholder, keep working, ask once in a batch              |
 | Paid anything (services, assets, credits, subscriptions)          | **Ask**                                                     |
 | Credentials, account access, permissions                          | **Ask**                                                     |
+| Installing system packages (`apt` or similar)                     | Try available tools and alternatives first; else **Ask**    |
 | Deploy, publish, DNS, send externally, push/merge to `main`       | **Ask**                                                     |
 | Contradictory client requirements with material impact            | **Ask**, with a recommendation                              |
 | Materially different interpretations risking major rework         | **Ask**, with a recommendation                              |

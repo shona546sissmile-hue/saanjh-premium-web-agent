@@ -26,6 +26,7 @@
     "test:visual:update": "playwright test --project=visual-desktop --project=visual-mobile --update-snapshots",
     "lhci": "pnpm build && lhci autorun",
     "optimize:3d": "node scripts/optimize-3d.mjs",
+    "intake:inventory": "node scripts/intake-inventory.mjs",
     "verify": "pnpm format:check && pnpm lint && pnpm check && pnpm test && pnpm lhci"
   },
   "dependencies": {
